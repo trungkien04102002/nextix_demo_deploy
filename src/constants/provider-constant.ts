@@ -1,0 +1,1 @@
+export const eplOrigin = 'https://www.premierleague.com'

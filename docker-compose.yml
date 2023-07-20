@@ -1,0 +1,23 @@
+version: '3'
+networks:
+  local_network:
+    external: true
+
+services:
+  db:
+    image: postgres:13
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST=my-database.cud8qfjlty0q.us-east-1.rds.amazonaws.com
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=nextix
+      - TEST_IN_ENV_FILE = test
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - local_network

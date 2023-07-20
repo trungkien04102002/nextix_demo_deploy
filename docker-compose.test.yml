@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  test_app:
+    image: nextix_dc_test:latest
+    container_name: nextix_dc_app_test
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST=my-database.cud8qfjlty0q.us-east-1.rds.amazonaws.com
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=nextix
+      - TEST_IN_ENV_FILE = Ahihioc
+    ports:
+      - 3000:3000
+volumes:
+  data:
+
